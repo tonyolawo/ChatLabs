@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex — Case Study — Chat Labs</title>
+  <meta name="description" content="How a chat-first finance assistant for Kenyan shop owners was evaluated and designed across web, mobile, WhatsApp, Telegram, and SMS." />
+  <link rel="stylesheet" href="../css/styles.css" />
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="container">
+      <a href="../index.html" class="logo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B4531F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-5px; margin-right:.375rem;">
+          <path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.9-.9L3 20l1-5.6a8.5 8.5 0 0 1-1-3.9A8.5 8.5 0 0 1 11.5 2 8.38 8.38 0 0 1 21 11.5z"/>
+        </svg>
+        Chat Labs
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../index.html#channels">What we build</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#simulation">Evaluate</a></li>
+      </ul>
+
+      <a href="../index.html#contact" class="btn btn-primary btn-sm nav-cta">Start a project</a>
+
+      <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="mobile-menu">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../index.html#channels">What we build</a></li>
+          <li><a href="../index.html#skills">Skills</a></li>
+          <li><a href="../index.html#simulation">Evaluate</a></li>
+          <li><a href="../index.html#contact">Contact</a></li>
+        </ul>
+        <a href="../index.html#contact" class="btn btn-primary">Start a project</a>
+      </div>
+    </div>
+  </nav>
+
+  <section id="alex" class="case-hero">
+    <div class="container">
+      <p class="case-back"><a href="../case-studies.html">&larr; Back to case studies</a></p>
+      <h1>Alex — chat-based finance for Kenyan small businesses</h1>
+      <p>How a chat-first finance assistant for Kenyan shop owners was evaluated and designed across web, mobile, WhatsApp, Telegram, and SMS.</p>
+    </div>
+  </section>
+
+  <section id="story" class="section">
+    <div class="container">
+      <div class="case-article reveal">
+
+        <h2>The problem</h2>
+        <p>Small hardware and retail businesses in Kenya run their day-to-day finances — invoices, sales reports, stock, customers, tax — while living on WhatsApp, Telegram, and SMS. Existing accounting tools are desktop-first and heavy, and a busy owner won't sit in front of a dashboard. The finance workflow needs to meet the owner where they already are: inside the chats they use all day.</p>
+
+        <h2>Problem evaluation</h2>
+        <p>The work began with an interviewing-style review of a real owner's workflow, using a sample shop (Rainbow Hardware) to ground every scenario. That review surfaced the flows that actually matter for a shop like this:</p>
+        <ul>
+          <li>Creating invoices and receiving M-Pesa confirmations</li>
+          <li>Weekly and monthly sales reporting</li>
+          <li>Stock low alerts and restocking</li>
+          <li>Customer lookup and credit</li>
+          <li>VAT filing and KRA eTIMS compliance</li>
+          <li>Storefront orders</li>
+        </ul>
+        <p>The key finding: the assistant must feel like a conversation, not a queue of forms. Owners won't fill out a structured dashboard screen — they will send a message and expect a useful reply.</p>
+
+        <h2>The design</h2>
+        <p>Alex is a single assistant engine — avatar "A" — with each channel styled natively. The same intentions and data sit behind every interface:</p>
+        <ul>
+          <li>A web chat with a side dashboard</li>
+          <li>A mobile-first app UI</li>
+          <li>WhatsApp with interactive buttons and read receipts</li>
+          <li>Telegram with bot commands and inline keyboards</li>
+          <li>SMS with numbered text menus</li>
+        </ul>
+        <p>Two visual themes (fintech and casual) ship with a live toggle, and a shared sample dataset keeps every channel telling the same story about the same shop.</p>
+
+        <h2>Where it stands now</h2>
+        <p>Interactive prototypes exist for all five channels, plus a landing page that explains the product and collects waitlist signups. The demo and landing page are live for walkthroughs and feedback; implementation and real integrations are the next phase.</p>
+
+      </div>
+
+      <div class="case-ctas reveal">
+        <p class="case-status">Status: design and prototype stage</p>
+        <a class="btn btn-primary" href="https://tonyolawo.github.io/alex/">View the landing page</a>
+        <a class="btn btn-secondary" href="https://tonyolawo.github.io/alex/mockups/">Explore the demo</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <a href="../index.html" class="logo">Chat Labs</a>
+      <ul class="footer-links">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="../case-studies.html">Case studies</a></li>
+        <li><a href="../index.html#channels">What we build</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#simulation">Evaluate</a></li>
+        <li><a href="mailto:hello@chatlabs.dev">Contact</a></li>
+      </ul>
+      <p class="footer-copy">&copy; <span id="current-year"></span> Chat Labs. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
