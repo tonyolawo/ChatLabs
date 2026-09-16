@@ -101,21 +101,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (contactForm) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    let formStatus = document.querySelector(".form-status");
 
-    contactForm.addEventListener("submit", (e) => {
+    function setStatus(message, type) {
+      if (!formStatus) {
+        formStatus = document.createElement("div");
+        formStatus.className = "form-status";
+        contactForm.appendChild(formStatus);
+      }
+      formStatus.textContent = message;
+      formStatus.className = "form-status";
+      if (type) formStatus.classList.add(type);
+    }
+
+    function clearStatus() {
+      if (formStatus) {
+        formStatus.textContent = "";
+        formStatus.className = "form-status";
+      }
+    }
+
+    contactForm.addEventListener("submit", async (e) => {
       e.preventDefault();
-      const nameInput = contactForm.querySelector(
-        'input[name="name"], input[type="text"]'
-      );
-      const emailInput = contactForm.querySelector(
-        'input[name="email"], input[type="email"]'
-      );
+      const nameInput = contactForm.querySelector('input[name="name"]');
+      const emailInput = contactForm.querySelector('input[name="email"]');
       let valid = true;
 
       contactForm.querySelectorAll(".error-msg").forEach((el) => el.remove());
       contactForm
         .querySelectorAll(".error")
         .forEach((el) => el.classList.remove("error"));
+      clearStatus();
 
       if (nameInput && !nameInput.value.trim()) {
         nameInput.classList.add("error");
@@ -142,7 +159,25 @@ document.addEventListener("DOMContentLoaded", () => {
         valid = false;
       }
 
-      if (valid) {
+      if (!valid) return;
+
+      const originalLabel = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+
+      try {
+        const response = await fetch(contactForm.action, {
+          method: "POST",
+          body: new FormData(contactForm),
+        });
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+          throw new Error(
+            result.message || "Could not send your message. Please try again."
+          );
+        }
+
         contactForm.style.display = "none";
         let successMsg = document.querySelector(".success-msg");
         if (!successMsg) {
@@ -153,6 +188,14 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           successMsg.style.display = "";
         }
+      } catch (error) {
+        setStatus(
+          error.message || "Could not send your message. Please try again.",
+          "error"
+        );
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalLabel;
       }
     });
 
